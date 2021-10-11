@@ -1,0 +1,131 @@
+@font-face {
+    font-family: "Rubik";
+    src: url("./../fonts/Rubik-Regular.ttf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Rubik";
+    src: url("./../fonts/Rubik-Medium.ttf");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Rubik";
+    src: url("./../fonts/Rubik-Semibold.ttf");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "Rubik";
+    src: url("./../fonts/Rubik-Bold.ttf");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Rubik";
+    src: url("./../fonts/Rubik-ExtraBold.ttf");
+    font-weight: 700;
+}
+
+* {
+    font-family: "Rubik";
+    color: rgba(31, 41, 55, 1);
+}
+
+body {
+    background-color: rgba(228, 232, 243, 1);
+}
+
+a {
+    text-decoration: none !important;
+}
+
+/* CUSTOMIZE */
+
+.text-dark {
+    color: rgba(31, 41, 55, 1) !important;
+}
+
+.text-success {
+    color: rgba(76, 165, 56, 1) !important;
+}
+
+.bg-primary {
+    background-color: rgba(31, 49, 127, 1) !important;
+}
+
+.bg-success {
+    background-color: rgba(76, 165, 56, 1) !important;
+}
+
+.bg-warning {
+    background-color: rgba(245, 158, 11, 1) !important;
+}
+
+.btn-primary {
+    background-color: rgba(31, 49, 127, 1) !important;
+}
+
+.btn-success {
+    background-color: rgba(76, 165, 56, 1) !important;
+}
+
+.btn-danger {
+    background-color: rgba(239, 68, 68, 1);
+}
+
+.alert-info {
+    background-color: rgba(96, 165, 250, 0.4);
+}
+
+.border-primary {
+    border-color: rgba(31, 49, 127, 1) !important;
+}
+
+/* ADD */
+
+.font-weight-medium {
+    font-weight: 500;
+}
+
+.font-weight-semibold {
+    font-weight: 600;
+}
+
+.h-screen {
+    height: 100vh;
+}
+
+.opacity-50 {
+    opacity: 50%;
+}
+
+.opacity-100 {
+    opacity: 100%;
+}
+
+.dropdown:hover > .dropdown-menu {
+    display: block;
+}
+
+/* STYLE */
+
+.cek__pendaftaran-input {
+    max-width: 100%;
+}
+
+@media screen and (min-width: 576px) {
+    .cek__pendaftaran-input {
+        max-width: 50%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 992px) {
+    .cek__pendaftaran-input {
+        max-width: 100%;
+    }
+}
