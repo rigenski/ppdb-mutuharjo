@@ -15,7 +15,7 @@
           <h4>Total Pendaftar</h4>
         </div>
         <div class="card-body">
-          123
+          {{ $siswa->count() }}
         </div>
       </div>
     </div>
@@ -30,7 +30,7 @@
           <h4>Total Pengumuman</h4>
         </div>
         <div class="card-body">
-          123
+          {{ $pengumuman->count() }}
         </div>
       </div>
     </div>
@@ -60,80 +60,61 @@
                 <td>
                   <div class="progress" data-height="4" data-toggle="tooltip" title="" data-original-title="100%"
                     style="height: 4px;">
-                    <div class="progress-bar bg-success" data-width="100" style="width: 100px;"></div>
+                    <div class="progress-bar bg-success" data-width="{{ $to / 252 * 100 }}" style="width: 100px;"></div>
                   </div>
                 </td>
-                <td>48 / 72</td>
+                <td>{{ $to }} / 252</td>
               </tr>
               <tr>
                 <th scope="row">2</th>
-                <td>Teknik Pemesinan</td>
+                <td>Teknik Mesin</td>
                 <td>
                   <div class="progress" data-height="4" data-toggle="tooltip" title="" data-original-title="100%"
                     style="height: 4px;">
-                    <div class="progress-bar bg-success" data-width="100" style="width: 100px;"></div>
+                    <div class="progress-bar bg-success" data-width="{{ $tm / 64 * 100 }}" style="width: 100px;"></div>
                   </div>
                 </td>
-                <td>48 / 72</td>
+                <td>{{ $tm }} / 64</td>
               </tr>
               <tr>
                 <th scope="row">3</th>
-                <td>Teknik Elektronika Industri</td>
+                <td>Teknik Elektronika</td>
                 <td>
                   <div class="progress" data-height="4" data-toggle="tooltip" title="" data-original-title="100%"
                     style="height: 4px;">
-                    <div class="progress-bar bg-success" data-width="100" style="width: 100px;"></div>
+                    <div class="progress-bar bg-success" data-width="{{ $te / 72 * 100 }}" style="width: 100px;"></div>
                   </div>
                 </td>
-                <td>48 / 72</td>
+                <td>{{ $te }} / 36</td>
               </tr>
               <tr>
                 <th scope="row">4</th>
-                <td>Teknik Komputer dan Jaringan</td>
+                <td>Teknik Komputer Jaringan dan Telekomunikasi</td>
                 <td>
                   <div class="progress" data-height="4" data-toggle="tooltip" title="" data-original-title="100%"
                     style="height: 4px;">
-                    <div class="progress-bar bg-success" data-width="100" style="width: 100px;"></div>
+                    <div class="progress-bar bg-success" data-width="{{ $tkjt / 72 * 100 }}" style="width: 100px;">
+                    </div>
                   </div>
                 </td>
-                <td>48 / 72</td>
+                <td>{{ $tkjt }} / 72</td>
               </tr>
               <tr>
                 <th scope="row">5</th>
-                <td>Pengembangan Perangkat Lunak dan Game</td>
+                <td>Pengembangan Perangkat Lunak dan Gim</td>
                 <td>
                   <div class="progress" data-height="4" data-toggle="tooltip" title="" data-original-title="100%"
                     style="height: 4px;">
-                    <div class="progress-bar bg-success" data-width="100" style="width: 100px;"></div>
+                    <div class="progress-bar bg-success" data-width="{{ $pplg / 72 * 100 }}" style="width: 100px;">
+                    </div>
                   </div>
                 </td>
-                <td>48 / 72</td>
+                <td>{{ $pplg }} / 72
+                </td>
               </tr>
             </tbody>
           </table>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-8 col-12">
-    <div class="card">
-      <div class="card-header">
-        <h4>Persentase per Bulan</h4>
-      </div>
-      <div class="card-body">
-        <canvas id="chart_week" width="200" height="100"></canvas>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-4 col-sm-6 col-12">
-    <div class="card">
-      <div class="card-header">
-        <h4>Persentase Hari Minggu</h4>
-      </div>
-      <div class="card-body">
-        <canvas id="chart_day" width="100" height="100"></canvas>
       </div>
     </div>
   </div>

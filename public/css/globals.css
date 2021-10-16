@@ -79,6 +79,16 @@ a {
     background-color: rgba(96, 165, 250, 0.4);
 }
 
+.alert-success {
+    color: rgba(255, 255, 255, 1) !important;
+    background-color: rgba(76, 165, 56, 1) !important;
+}
+
+.alert-danger {
+    color: rgba(255, 255, 255, 1) !important;
+    background-color: rgba(239, 68, 68, 1) !important;
+}
+
 .border-primary {
     border-color: rgba(31, 49, 127, 1) !important;
 }

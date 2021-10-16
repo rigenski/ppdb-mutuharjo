@@ -20,8 +20,16 @@
           <h4 class="text-white">SMK Muhammadiyah 1 Sukoharjo</h4>
           <h6 class="text-white font-weight-normal">TAHUN PELAJARAN 2022/2023</h6>
         </div>
+
+        @if(session('error'))
+        <div class="alert alert-danger mt-3" role="alert">
+          {{ session('error') }}
+        </div>
+        @endif
+
         <div class="mb-3 px-3 px-md-5 py-4 py-md-5 bg-light shadow-sm">
-          <form>
+          <form action="{{ route('login.store') }}" method="post">
+            @csrf
 
             {{-- DATA SISWA --}}
             <div class="siswa__section mb-4">
@@ -30,21 +38,21 @@
                 <h5 class="ml-3">Data Akun</h5>
               </div>
               <div class="form-group row">
-                <label for="id_daftar" class="col-sm-4 col-form-label font-weight-normal">NISN<span
+                <label for="username" class="col-sm-4 col-form-label font-weight-normal">NISN<span
                     class="text-danger">*</span></label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control  @error('id_daftar') is-invalid @enderror" id="id_daftar"
-                    name="id_daftar" autocomplete="off" required>
+                  <input type="text" class="form-control  @error('username') is-invalid @enderror" id="username"
+                    name="username" autocomplete="off" required>
                   <small class="form-text text-muted">nb: <span class="text-dark">( Masukkan NISN yang valid saat
                       digunakan untuk pendaftaran )</span></small>
                 </div>
               </div>
               <div class="form-group row">
-                <label for="pin" class="col-sm-4 col-form-label font-weight-normal">PIN<span
+                <label for="password" class="col-sm-4 col-form-label font-weight-normal">PIN<span
                     class="text-danger">*</span></label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control @error('pin') is-invalid @enderror" id="pin" name="pin"
-                    autocomplete="off" required>
+                  <input type="text" class="form-control @error('password') is-invalid @enderror" id="password"
+                    name="password" autocomplete="off" required>
                   <small class="form-text text-muted">nb: <span class="text-dark">( Masukkan PIN yang terdapat pada
                       Bukti Pembayaran
                       )</span></small>

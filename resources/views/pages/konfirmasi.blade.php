@@ -21,7 +21,8 @@
           <h6 class="text-white font-weight-normal">TAHUN PELAJARAN 2022/2023</h6>
         </div>
         <div class="mb-3 px-3 px-md-5 py-4 py-md-5 bg-light shadow-sm">
-          <form>
+          <form action="{{ route('konfirmasi.store') }}" method="post" enctype="multipart/form-data">
+            @csrf
 
             {{-- DATA SISWA --}}
             <div class="siswa__section mb-4">
@@ -55,7 +56,8 @@
                 <div class="col-sm-8">
                   <input type="text" class="form-control @error('nomer_hp') is-invalid @enderror" id="nomer_hp"
                     name="nomer_hp" autocomplete="off" required>
-                  <small class="form-text text-muted">ex: <span class="text-dark">08123456789</span></small>
+                  <small class="form-text text-muted">ex: <span class="text-dark">08123456789 , nb: (Untuk mengirim
+                      status konfirmasi pembayaran)</span></small>
                 </div>
               </div>
               <div class="form-group row">

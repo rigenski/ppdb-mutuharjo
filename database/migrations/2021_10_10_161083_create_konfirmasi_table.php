@@ -18,7 +18,7 @@ class CreateKonfirmasiTable extends Migration
             $table->string('nama');
             $table->string('nisn');
             $table->string('nomer_hp');
-            $table->string('bukti_pembayaran');
+            $table->string('bukti_pembayaran')->nullable();
             $table->foreignId('siswa_id')->constrained('siswa');
             $table->timestamps();
         });

@@ -6,20 +6,29 @@ use App\Http\Controllers\Controller;
 use App\Models\Siswa;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PendaftaranController extends Controller
 {
     public function index()
     {
+        if (Auth::check()) {
+            return redirect()->route('siswa');
+        }
+
         return view('/pages/pendaftaran');
     }
 
     public function store(Request $request)
     {
+        if (Auth::check()) {
+            return redirect()->route('siswa');
+        }
+
         date_default_timezone_set("Asia/Jakarta");
 
         $request->validate([
-            'jurusan' => 'required',
+            'program_keahlian' => 'required',
             'nama' => 'required',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
@@ -40,28 +49,28 @@ class PendaftaranController extends Controller
             'kabupaten_ortu' => 'required',
         ]);
 
-        $nomer_pendaftar = $request->jurusan . '-' . rand(1000, 9999);
+        $nomer_pendaftar = $request->program_keahlian . '-' . rand(1000, 9999);
 
-        if ($request->jurusan === 'TO') {
-            $jurusan = 'Teknik Otomotif';
-        } else if ($request->jurusan === 'TP') {
-            $jurusan = 'Teknik Pemesinan';
-        } else if ($request->jurusan === 'TEI') {
-            $jurusan = 'Teknik Elektronika Industri';
-        } else if ($request->jurusan === 'TKJ') {
-            $jurusan = 'Teknik Komputer dan Jaringan';
-        } else if ($request->jurusan === 'PPLG') {
-            $jurusan = 'Pengembangan Perangkat Lunak dan Game';
+        if ($request->program_keahlian === 'TO') {
+            $program_keahlian = 'Teknik Otomotif';
+        } else if ($request->program_keahlian === 'TM') {
+            $program_keahlian = 'Teknik Mesin';
+        } else if ($request->program_keahlian === 'TE') {
+            $program_keahlian = 'Teknik Elektronika';
+        } else if ($request->program_keahlian === 'TKJT') {
+            $program_keahlian = 'Teknik Komputer Jaringan dan Telekomunikasi';
+        } else if ($request->program_keahlian === 'PPLG') {
+            $program_keahlian = 'Pengembangan Perangkat Lunak dan Gim';
         }
 
         $kejuaraan = '';
 
         for ($x = 0; $x < 3; $x++) {
-            $kejuaraan_tinkat = $request->kejuaraan_tingkat[$x] ? $request->kejuaraan_tingkat[$x] : ' ';
+            $kejuaraan_tingkat = $request->kejuaraan_tingkat[$x] ? $request->kejuaraan_tingkat[$x] : ' ';
 
             $kejuaraan_nama = $request->kejuaraan_nama[$x] ? $request->kejuaraan_nama[$x] : ' ';
 
-            $kejuaraan .=  $kejuaraan_tinkat . '-' . $kejuaraan_nama;
+            $kejuaraan .=  $kejuaraan_tingkat . '-' . $kejuaraan_nama;
 
             if ($x < 2) {
                 $kejuaraan .= '|';
@@ -76,9 +85,9 @@ class PendaftaranController extends Controller
             'password' => bcrypt($pin),
         ]);
 
-        Siswa::create([
+        $siswa = Siswa::create([
             'nomer_pendaftar' => $nomer_pendaftar,
-            'jurusan' => $jurusan,
+            'program_keahlian' => $program_keahlian,
             'nama' => $request->nama,
             'tempat_lahir' => $request->tempat_lahir,
             'tanggal_lahir' => $request->tanggal_lahir,
@@ -97,7 +106,7 @@ class PendaftaranController extends Controller
             'alamat_ortu' => $request->alamat_ortu,
             'kecamatan_ortu' => $request->kecamatan_ortu,
             'kabupaten_ortu' => $request->kabupaten_ortu,
-            'hafalan' => $request->hafalan ? $request->hafalan : '',
+            'hafalan' => $request->hafalan ? $request->hafalan : '-',
             'lulusan_muh' => $request->lulusan_muh,
             'saudara' => $request->saudara ? $request->saudara : '-',
             'kejuaraan' => $kejuaraan,
@@ -106,6 +115,8 @@ class PendaftaranController extends Controller
             'user_id' => $user->id,
         ]);
 
-        return redirect()->route('pendaftaran')->with('success', 'success');
+        session(['id_siswa' => $siswa->id]);
+
+        return redirect()->route('detail')->with('success', 'success');
     }
 }

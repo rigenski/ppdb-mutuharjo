@@ -9,46 +9,47 @@
     <h4>Tambah Pendaftar</h4>
   </div>
   <div class="card-body">
-    <form action="">
+    <form action="{{ route('admin.siswa.store') }}" method="post">
+      @csrf
       <div class="row">
         <div class="col-12 col-md-6">
           <div class="row mb-3">
             <div class="col-12 col-sm-6">
               <div class="form-check mb-2">
-                <input type="radio" class="form-check-input @error('jurusan') is-invalid @enderror" id="jurusan_tkro"
-                  name="jurusan" value="TO" autocomplete="off" required>
-                <label class="form-check-label" for="jurusan_tkro">
+                <input type="radio" class="form-check-input @error('program_keahlian') is-invalid @enderror"
+                  id="program_keahlian_to" name="program_keahlian" value="TO" autocomplete="off" required>
+                <label class="form-check-label" for="program_keahlian_to">
                   Teknik Otomotif
                 </label>
               </div>
               <div class="form-check mb-2">
-                <input type="radio" class="form-check-input @error('jurusan') is-invalid @enderror" id="jurusan_tp"
-                  name="jurusan" value="TP" autocomplete="off" required>
-                <label class="form-check-label" for="jurusan_tp">
-                  Teknik Pemesinan
+                <input type="radio" class="form-check-input @error('program_keahlian') is-invalid @enderror"
+                  id="program_keahlian_tm" name="program_keahlian" value="TM" autocomplete="off" required>
+                <label class="form-check-label" for="program_keahlian_tm">
+                  Teknik Mesin
                 </label>
               </div>
               <div class="form-check mb-2">
-                <input type="radio" class="form-check-input @error('jurusan') is-invalid @enderror" id="jurusan_tei"
-                  name="jurusan" value="TEI" autocomplete="off" required>
-                <label class="form-check-label" for="jurusan_tei">
-                  Teknik Elektronika Industri
+                <input type="radio" class="form-check-input @error('program_keahlian') is-invalid @enderror"
+                  id="program_keahlian_te" name="program_keahlian" value="TE" autocomplete="off" required>
+                <label class="form-check-label" for="program_keahlian_te">
+                  Teknik Elektronika
                 </label>
               </div>
             </div>
             <div class="col-12 col-sm-6">
               <div class="form-check mb-2">
-                <input type="radio" class="form-check-input @error('jurusan') is-invalid @enderror" id="jurusan_tkj"
-                  name="jurusan" value="TKJ" autocomplete="off" required>
-                <label class="form-check-label" for="jurusan_tkj">
-                  Teknik Komputer dan Jaringan
+                <input type="radio" class="form-check-input @error('program_keahlian') is-invalid @enderror"
+                  id="program_keahlian_tkjt" name="program_keahlian" value="TKJT" autocomplete="off" required>
+                <label class="form-check-label" for="program_keahlian_tkjt">
+                  Teknik Komputer Jaringan dan Telekomunikasi
                 </label>
               </div>
               <div class="form-check mb-2">
-                <input type="radio" class="form-check-input @error('jurusan') is-invalid @enderror" id="jurusan_pplg"
-                  name="jurusan" value="PPLG" autocomplete="off" required>
-                <label class="form-check-label" for="jurusan_pplg">
-                  Pengembangan Perangkat Lunak dan Game
+                <input type="radio" class="form-check-input @error('program_keahlian') is-invalid @enderror"
+                  id="program_keahlian_pplg" name="program_keahlian" value="PPLG" autocomplete="off" required>
+                <label class="form-check-label" for="program_keahlian_pplg">
+                  Pengembangan Perangkat Lunak dan Gim
                 </label>
               </div>
             </div>
@@ -103,7 +104,7 @@
             <small class="form-text text-muted">ex: <span class="text-dark">Bulu</span></small>
           </div>
           <div class="form-group">
-            <label for="kabupaten"">Kabupaten<span class=" text-danger">*</span></label>
+            <label for="kabupaten">Kabupaten<span class=" text-danger">*</span></label>
             <input type="text" class="form-control @error('kabupaten') is-invalid @enderror" id="kabupaten"
               name="kabupaten" autocomplete="off" required>
             <small class="form-text text-muted">ex: <span class="text-dark">Sukoharjo</span></small>
@@ -183,10 +184,16 @@
             <small class="form-text text-muted">ex: <span class="text-dark">08123456789</span></small>
           </div>
           <div class="form-group">
-            <label for="alamat_rumah_ortu">Alamat Rumah Orang
+            <label for="alamat_ortu">Alamat Rumah Orang
               Tua<span class="text-danger">*</span></label>
-            <textarea class="form-control @error('alamat_rumah_ortu') is-invalid @enderror" id="alamat_rumah_ortu"
-              name="alamat_rumah_ortu" rows="3" autocomplete="off" required></textarea>
+            <textarea class="form-control @error('alamat_ortu') is-invalid @enderror" id="alamat_ortu"
+              name="alamat_ortu" rows="3" autocomplete="off" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="kecamatan_ortu">Kecamatan Orang Tua<span class="text-danger">*</span></label>
+            <input type="text" class="form-control @error('kecamatan_ortu') is-invalid @enderror" id="kecamatan_ortu"
+              name="kecamatan_ortu" autocomplete="off" required>
+            <small class="form-text text-muted">ex: <span class="text-dark">Sukoharjo</span></small>
           </div>
           <div class="form-group">
             <label for="kabupaten_ortu">Kabupaten Orang Tua<span class="text-danger">*</span></label>
@@ -195,9 +202,8 @@
             <small class="form-text text-muted">ex: <span class="text-dark">Sukoharjo</span></small>
           </div>
           <div class="form-group">
-            <label for="hafalan">Hafalan<span class="text-danger">*</span></label>
-            <input type="text" class="form-control @error('hafalan') is-invalid @enderror" id="hafalan" name="hafalan"
-              autocomplete="off" required>
+            <label for="hafalan">Hafalan</label>
+            <input type="text" class="form-control" id="hafalan" name="hafalan" autocomplete="off">
             <small class="form-text text-muted">ex: <span class="text-dark">Juz 1-4</span></small>
           </div>
           <div class="form-group">
@@ -220,9 +226,8 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="saudara">Saudara di SMK<span class="text-danger">*</span> </label>
-            <input type="text" class="form-control @error('saudara') is-invalid @enderror" id="saudara" name="saudara"
-              autocomplete="off" required>
+            <label for="saudara">Saudara di SMK</label>
+            <input type="text" class="form-control" id="saudara" name="saudara" autocomplete="off">
             <small class="form-text text-muted">ex: <span class="text-dark">Rigen Maulana RPL 1</span></small>
           </div>
         </div>
@@ -242,7 +247,7 @@
               <tr>
                 <td>1.</td>
                 <td>
-                  <select class="form-control" id="kejuaraan1_tingkat" name="kejuaraan1_tingkat" autocomplete="off">
+                  <select class="form-control" id="kejuaraan1_tingkat" name="kejuaraan_tingkat[]" autocomplete="off">
                     <option value="">-- Pilih Tingkat Kejuaraan --</option>
                     <option value="Sekolah">Sekolah</option>
                     <option value="Kecamatan">Kecamatan</option>
@@ -253,14 +258,14 @@
                   </select>
                 </td>
                 <td>
-                  <input type="text" class="form-control" id="kejuaraan1_nama" name="kejuaraan1_nama"
+                  <input type="text" class="form-control" id="kejuaraan1_nama" name="kejuaraan_nama[]"
                     autocomplete="off">
                 </td>
               </tr>
               <tr>
                 <td>2.</td>
                 <td>
-                  <select class="form-control" id="kejuaraan2_tingkat" name="kejuaraan2_tingkat" autocomplete="off">
+                  <select class="form-control" id="kejuaraan2_tingkat" name="kejuaraan_tingkat[]" autocomplete="off">
                     <option value="">-- Pilih Tingkat Kejuaraan --</option>
                     <option value="Sekolah">Sekolah</option>
                     <option value="Kecamatan">Kecamatan</option>
@@ -271,14 +276,14 @@
                   </select>
                 </td>
                 <td>
-                  <input type="text" class="form-control" id="kejuaraan2_nama" name="kejuaraan2_nama"
+                  <input type="text" class="form-control" id="kejuaraan2_nama" name="kejuaraan_nama[]"
                     autocomplete="off">
                 </td>
               </tr>
               <tr>
                 <td>3.</td>
                 <td>
-                  <select class="form-control" id="kejuaraan3_tingkat" name="kejuaraan3_tingkat" autocomplete="off">
+                  <select class="form-control" id="kejuaraan3_tingkat" name="kejuaraan_tingkat[]" autocomplete="off">
                     <option value="">-- Pilih Tingkat Kejuaraan --</option>
                     <option value="Sekolah">Sekolah</option>
                     <option value="Kecamatan">Kecamatan</option>
@@ -289,7 +294,7 @@
                   </select>
                 </td>
                 <td>
-                  <input type="text" class="form-control" id="kejuaraan3_nama" name="kejuaraan3_nama"
+                  <input type="text" class="form-control" id="kejuaraan3_nama" name="kejuaraan_nama[]"
                     autocomplete="off">
                 </td>
               </tr>

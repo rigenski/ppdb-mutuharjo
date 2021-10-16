@@ -42,13 +42,17 @@
           </tr>
         </thead>
         <tbody>
+          <?php $count = 1; ?>
+          @foreach ($pengumuman as $data)
           <tr>
-            <td>1</td>
-            <td>This is Title</td>
-            <td>Duis aute irure dolor in reprehenderit in voluptate ...</td>
-            <td>09-10-2021</td>
+            <th scope="row">{{ $count }}</th>
+            <td>{{ substr( $data->judul, 0, 20) }} ...</td>
+            <td>{{ substr( $data->deskripsi, 0, 40) }} ...</td>
+            <td>{{ date_format($data->created_at, 'd-m-Y | h:i') }}</td>
             <td>
-              <a href="#modal__detail" data-toggle="modal" class="btn btn-info mr-2 mb-2">Detail</a>
+              <a href="#modal__detail" data-toggle="modal"
+                onclick="$('#modal__detail #judul').text('{{ $data->judul }}');$('#modal__detail #deskripsi').text('{{ $data->deskripsi }}');$('#modal__detail #tanggal').text('{{ $data->created_at }}');"
+                class="btn btn-info mr-2 mb-2">Detail</a>
               <div class="dropdown d-inline mr-2">
                 <button class="btn btn-primary dropdown-toggle mb-2" type="button" id="dropdownMenuButton"
                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -57,15 +61,17 @@
                 <div class="dropdown-menu mr-2" x-placement="bottom-start"
                   style="position: absolute; transform: translate3d(0px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
                   <a href="#modal__edit" data-toggle="modal"
-                    onclick="$('#modal__edit #form__delete').attr('action', '/admin/pengumuman/1/update')"
+                    onclick="$('#modal__edit #form__edit').attr('action', '/admin/pengumuman/{{ $data->id }}/update');$('#modal__edit #form__edit #judul').attr('value', '{{ $data->judul }}');$('#modal__edit #form__edit #deskripsi').text('{{ $data->deskripsi }}');"
                     class="dropdown-item text-warning font-weight-bolder">Ubah</a>
                   <a href="#modal__delete" data-toggle="modal"
-                    onclick="$('#modal__delete #form__delete').attr('action', '/admin/pengumuman/1/delete')"
+                    onclick="$('#modal__delete #form__delete').attr('action', '/admin/pengumuman/{{ $data->id }}/destroy')"
                     class="dropdown-item text-danger font-weight-bolder">Hapus</a>
                 </div>
               </div>
             </td>
           </tr>
+          <?php $count++ ?>
+          @endforeach
         </tbody>
       </table>
     </div>
@@ -81,7 +87,7 @@
   aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form action="/admin/pengumuman/store" method="post">
+      <form action="{{ route('admin.pengumuman.store') }}" method="post">
         @csrf
         <div class="modal-header">
           <h5 class="modal-title" id="staticBackdropLabel">Tambah Pengumuman</h5>
@@ -134,9 +140,10 @@
       <div class="modal-body">
         <div class="media mb-4">
           <div class="media-body pb-2">
-            <div class="media-title mb-1">This is Title</div>
-            <div class="text-time">Yesterday</div>
-            <div class="media-description text-muted">Duis aute irure dolor in reprehenderit in voluptate velit esse
+            <div id="judul" class="media-title mb-1">This is Title</div>
+            <div id="tanggal" class="text-time">Yesterday</div>
+            <div id="deskripsi" class="media-description text-muted">Duis aute irure dolor in reprehenderit in voluptate
+              velit esse
               cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
               proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
           </div>
@@ -174,7 +181,7 @@
             @enderror
           </div>
           <div class="form-group">
-            <label for="deskripsi">Deskripsi</label>
+            <label for="deskripsi">deskripsi</label>
             <textarea class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi" name="deskripsi"
               required></textarea>
             @error('deskripsi')

@@ -25,48 +25,48 @@
             @csrf
 
             {{-- DATA JURUSAN --}}
-            <div class="jurusan__section mb-4">
+            <div class="keahlian__section mb-4">
               <div class="d-flex align-items-center pb-3">
                 <span class="bg-primary mb-2 rounded-pill" style="height: 0.4rem; width: 1.6rem;"></span>
-                <h5 class="ml-3">Jurusan</h5>
+                <h5 class="ml-3">Program Keahlian</h5>
               </div>
               <div class="row">
                 <div class="col-12 col-sm-6">
                   <div class="form-check mb-2">
-                    <input type="radio" class="form-check-input @error('jurusan') is-invalid @enderror" id="jurusan_to"
-                      name="jurusan" value="TO" autocomplete="off" required>
-                    <label class="form-check-label" for="jurusan_to">
+                    <input type="radio" class="form-check-input @error('program_keahlian') is-invalid @enderror"
+                      id="program_keahlian_to" name="program_keahlian" value="TO" autocomplete="off" required>
+                    <label class="form-check-label" for="program_keahlian_to">
                       Teknik Otomotif
                     </label>
                   </div>
                   <div class="form-check mb-2">
-                    <input type="radio" class="form-check-input @error('jurusan') is-invalid @enderror" id="jurusan_tm"
-                      name="jurusan" value="TM" autocomplete="off" required>
-                    <label class="form-check-label" for="jurusan_tm">
+                    <input type="radio" class="form-check-input @error('program_keahlian') is-invalid @enderror"
+                      id="program_keahlian_tm" name="program_keahlian" value="TM" autocomplete="off" required>
+                    <label class="form-check-label" for="program_keahlian_tm">
                       Teknik Mesin
                     </label>
                   </div>
                   <div class="form-check mb-2">
-                    <input type="radio" class="form-check-input @error('jurusan') is-invalid @enderror" id="jurusan_te"
-                      name="jurusan" value="TE" autocomplete="off" required>
-                    <label class="form-check-label" for="jurusan_te">
+                    <input type="radio" class="form-check-input @error('program_keahlian') is-invalid @enderror"
+                      id="program_keahlian_te" name="program_keahlian" value="TE" autocomplete="off" required>
+                    <label class="form-check-label" for="program_keahlian_te">
                       Teknik Elektronika
                     </label>
                   </div>
                 </div>
                 <div class="col-12 col-sm-6">
                   <div class="form-check mb-2">
-                    <input type="radio" class="form-check-input @error('jurusan') is-invalid @enderror"
-                      id="jurusan_tkjt" name="jurusan" value="TKJT" autocomplete="off" required>
-                    <label class="form-check-label" for="jurusan_tkjt">
+                    <input type="radio" class="form-check-input @error('program_keahlian') is-invalid @enderror"
+                      id="program_keahlian_tkjt" name="program_keahlian" value="TKJT" autocomplete="off" required>
+                    <label class="form-check-label" for="program_keahlian_tkjt">
                       Teknik Komputer Jaringan dan Telekomunikasi
                     </label>
                   </div>
                   <div class="form-check mb-2">
-                    <input type="radio" class="form-check-input @error('jurusan') is-invalid @enderror"
-                      id="jurusan_pplg" name="jurusan" value="PPLG" autocomplete="off" required>
-                    <label class="form-check-label" for="jurusan_pplg">
-                      Pengembangan Perangkat Lunak dan Game
+                    <input type="radio" class="form-check-input @error('program_keahlian') is-invalid @enderror"
+                      id="program_keahlian_pplg" name="program_keahlian" value="PPLG" autocomplete="off" required>
+                    <label class="form-check-label" for="program_keahlian_pplg">
+                      Pengembangan Perangkat Lunak dan Gim
                     </label>
                   </div>
                 </div>
@@ -443,11 +443,3 @@
   </div>
 </main>
 @endsection
-
-{{-- <div class="col-12 col-md-10 alert alert-success alert-dismissible fade show" role="alert">
-  Sudah Mengirim Formulir ? Silahkan <a href="/"
-    class="text-dark font-weight-medium border-bottom border-dark">Masuk</a>
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div> --}}

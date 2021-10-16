@@ -15,18 +15,20 @@
     <div class="col-12 col-md-10 col-lg-8 p-0">
       <div class="row">
         <div class="col-12">
+          @foreach($pengumuman as $data)
           <div class="card mb-3">
             <div class="card-body">
-              <h5 class="card-title border-bottom pb-2 mb-2">Card Title</h5>
-              <p class="card-text">This is another card with title and supporting text below. This card has
-                some
-                additional content to make it slightly taller overall.</p>
+              <h5 class="card-title border-bottom pb-2 mb-2">{{ $data->judul }}</h5>
+              <p class="card-text">{{ $data->deskripsi }}</p>
               <div class="d-flex justify-content-between">
-                <p class="card-text m-0"><small class="text-muted">11:12</small></p>
-                <p class="card-text m-0"><small class="text-muted">30-10-2021</small></p>
+                <p class="card-text m-0"><small class="text-muted">{{ date_format($data->created_at, 'h:i') }}</small>
+                </p>
+                <p class="card-text m-0"><small class="text-muted">{{ date_format($data->created_at, 'd-m-Y') }}</small>
+                </p>
               </div>
             </div>
           </div>
+          @endforeach
         </div>
       </div>
     </div>

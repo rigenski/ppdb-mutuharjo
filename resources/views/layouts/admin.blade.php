@@ -24,8 +24,6 @@
         <form class="form-inline mr-auto">
           <ul class="navbar-nav mr-3">
             <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
-            <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i
-                  class="fas fa-search"></i></a></li>
           </ul>
         </form>
         <ul class="navbar-nav navbar-right">
@@ -35,7 +33,7 @@
               <div class="d-sm-none d-lg-inline-block">Hi, Admin</div>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
-              <a href="/auth/logout" class="dropdown-item has-icon text-danger">
+              <a href="{{ route('logout') }}" class="dropdown-item has-icon text-danger">
                 <i class="fas fa-sign-out-alt"></i> Logout
               </a>
             </div>
@@ -50,22 +48,28 @@
           <ul class="sidebar-menu">
             <li class="menu-header">GRAFIK</li>
             <li class="@yield('nav__item-admin')">
-              <a class="nav-link" href="/admin">
+              <a class="nav-link" href="{{ route('admin') }}">
                 <i class="fas fa-home"></i>
                 <span>Dashboard</span>
               </a>
             </li>
             <li class="menu-header">MAIN</li>
             <li class="@yield('nav__item-admin-pengumuman')">
-              <a class="nav-link" href="/admin/pengumuman">
+              <a class="nav-link" href="{{ route('admin.pengumuman') }}">
                 <i class="fas fa-bullhorn"></i>
                 <span>Pengumuman</span>
               </a>
             </li>
             <li class="@yield('nav__item-admin-siswa')">
-              <a class="nav-link" href="/admin/siswa">
+              <a class="nav-link" href="{{ route('admin.siswa') }}">
                 <i class="fas fa-users"></i>
                 <span>Data Pendaftar</span>
+              </a>
+            </li>
+            <li class="@yield('nav__item-admin-konfirmasi')">
+              <a class="nav-link" href="/admin/konfirmasi">
+                <i class="fas fa-key"></i>
+                <span>Konfirmasi</span>
               </a>
             </li>
           </ul>

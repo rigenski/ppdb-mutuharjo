@@ -29,13 +29,13 @@
           Informasi
         </a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Detail Jurusan</a>
-          <a class="dropdown-item" href="#">Detail PPDB</a>
-          <a class="dropdown-item" href="#">Persyaratan Masuk</a>
-          <a class="dropdown-item" href="#">Rincian Biaya</a>
+          <a class="dropdown-item" href="/persyaratan-pendaftaran">Persyaratan Pendaftaran</a>
+          <a class="dropdown-item" href="/rincian-biaya">Rincian Biaya</a>
+          <a class="dropdown-item" href="/profile-sekolah">Profile Sekolah</a>
+          <a class="dropdown-item" href="/program-keahlian">Program Keahlian</a>
         </div>
       </div>
-      <a href="#" class="text-light font-weight-normal pl-2" data-toggle="modal" data-target="#staticBackdrop">
+      <a href="#" class="text-light font-weight-normal pl-2" data-toggle="modal" data-target="#modal_kontak">
         Kontak
       </a>
     </div>
@@ -49,13 +49,13 @@
         Informasi
       </a>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="#">Detail Jurusan</a>
-        <a class="dropdown-item" href="#">Detail PPDB</a>
-        <a class="dropdown-item" href="#">Persyaratan Masuk</a>
-        <a class="dropdown-item" href="#">Rincian Biaya</a>
+        <a class="dropdown-item" href="/persyaratan-pendaftaran">Persyaratan Pendaftaran</a>
+        <a class="dropdown-item" href="/rincian-biaya">Rincian Biaya</a>
+        <a class="dropdown-item" href="/profile-sekolah">Profile Sekolah</a>
+        <a class="dropdown-item" href="/program-keahlian">Program Keahlian</a>
       </div>
     </div>
-    <a href="#" class="text-light font-weight-normal mx-2" data-toggle="modal" data-target="#staticBackdrop">
+    <a href="#" class="text-light font-weight-normal mx-2" data-toggle="modal" data-target="#modal_kontak">
       Kontak
     </a>
   </div>

@@ -14,7 +14,7 @@
   <div class="container-lg d-flex justify-content-center py-4">
     <div class="col-12 col-md-10 col-lg-8 p-0">
       <div class="alert alert-info py-3" role="alert">
-        <h4 class="alert-heading text-dark">Selamat, Rigen Maulana !</h4>
+        <h4 class="alert-heading text-dark">Selamat, {{ $siswa->nama }} !</h4>
         <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer
           so
           that you can see how spacing within an alert works with this kind of content.</p>
@@ -46,7 +46,7 @@
         </div>
       </div>
       <div class="text-center">
-        <a href="#" class="btn btn-danger">Keluar</a>
+        <a href="{{ route('logout') }}" class="btn btn-danger">Keluar</a>
       </div>
     </div>
   </div>
