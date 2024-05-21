@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        View::composer('*', function ($view) {
+            $view->with('major', collect([
+                'TO' => 'Teknik Otomotif - TKR',
+                'TM' => 'Teknik Mesin',
+                'TE' => 'Teknik Elektronika',
+                'TKJT' => 'Teknik Komputer Jaringan dan Telekomunikasi',
+                'PPLG' => 'Pengembangan Perangkat Lunak dan Gim',
+
+            ]));
+        });
     }
 }
