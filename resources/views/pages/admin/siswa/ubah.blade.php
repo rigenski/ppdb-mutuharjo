@@ -25,6 +25,13 @@
           @endforeach
 
           <div class="form-group mb-3">
+            <label for="nomer_pendaftar">No Pendaftar<span class="text-danger">*</span></label>
+            <input type="text" class="form-control @error('nomer_pendaftar') is-invalid @enderror" id="nomer_pendaftar" name="nomer_pendaftar"
+              autocomplete="off" required value="{{ $siswa->nomer_pendaftar }}">
+            <small class="form-text text-muted">ex: <span class="text-dark">12345</span></small>
+          </div>
+
+          <div class="form-group mb-3">
             <label for="nama">Nama Pendaftar<span class="text-danger">*</span></label>
             <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama"
               autocomplete="off" required value="{{ $siswa->nama }}">
