@@ -183,32 +183,36 @@ class SiswaController extends Controller
     {
         date_default_timezone_set("Asia/Jakarta");
 
-        $request->validate([
-            'program_keahlian' => 'required',
-            'nama' => 'required',
-            'tempat_lahir' => 'required',
-            'tanggal_lahir' => 'required',
-            'jenis_kelamin' => 'required',
-            'alamat' => 'required',
-            'kecamatan' => 'required',
-            'kabupaten' => 'required',
-            'nomer_hp' => 'required',
-            'nisn' => 'required',
-            'asal_sekolah' => 'required',
-            'nama_ayah' => 'required',
-            'pekerjaan_ayah' => 'required',
-            'nama_ibu' => 'required',
-            'pekerjaan_ibu' => 'required',
-            'nomer_hp_ortu' => 'required',
-            'alamat_ortu' => 'required',
-            'kecamatan_ortu' => 'required',
-            'kabupaten_ortu' => 'required',
-        ]);
+        // $request->validate([
+        //     'program_keahlian' => 'required',
+        //     'nama' => 'required',
+        //     'tempat_lahir' => 'required',
+        //     'tanggal_lahir' => 'required',
+        //     'jenis_kelamin' => 'required',
+        //     'alamat' => 'required',
+        //     'kecamatan' => 'required',
+        //     'kabupaten' => 'required',
+        //     'nomer_hp' => 'required',
+        //     'nisn' => 'required',
+        //     'asal_sekolah' => 'required',
+        //     'nama_ayah' => 'required',
+        //     'pekerjaan_ayah' => 'required',
+        //     'nama_ibu' => 'required',
+        //     'pekerjaan_ibu' => 'required',
+        //     'nomer_hp_ortu' => 'required',
+        //     'alamat_ortu' => 'required',
+        //     'kecamatan_ortu' => 'required',
+        //     'kabupaten_ortu' => 'required',
+        // ]);
 
-        $nomer_pendaftar = $request->program_keahlian . '-' . rand(1000, 9999);
+        // $nomer_pendaftar = $request->program_keahlian . '-' . rand(1000, 9999);
 
-        if ($request->program_keahlian === 'TO') {
-            $program_keahlian = 'Teknik Otomotif';
+        $program_keahlian = null;
+
+        if ($request->program_keahlian === 'TO_TSM') {
+            $program_keahlian = 'Teknik Otomotif - TSM';
+        } else if ($request->program_keahlian === 'TO_TKR') {
+            $program_keahlian = 'Teknik Otomotif - TKR';
         } else if ($request->program_keahlian === 'TM') {
             $program_keahlian = 'Teknik Mesin';
         } else if ($request->program_keahlian === 'TE') {
@@ -218,7 +222,6 @@ class SiswaController extends Controller
         } else if ($request->program_keahlian === 'PPLG') {
             $program_keahlian = 'Pengembangan Perangkat Lunak dan Gim';
         }
-
         $kejuaraan = '';
 
         for ($x = 0; $x < 3; $x++) {
@@ -236,7 +239,7 @@ class SiswaController extends Controller
         $siswa = Siswa::find($id);
 
         $siswa->update([
-            'nomer_pendaftar' => $nomer_pendaftar,
+            'nomer_pendaftar' => $request->nomer_pendaftar,
             'program_keahlian' => $program_keahlian,
             'nama' => $request->nama,
             'tempat_lahir' => $request->tempat_lahir,

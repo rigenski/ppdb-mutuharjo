@@ -5,7 +5,7 @@
 
 @section('content')
 <div class="card mb-4">
-  <div class="card-header">
+  <div class=nomer_pendaftar"card-header">
     <h4>Ubah Pendaftar</h4>
   </div>
   <div class="card-body">
@@ -25,7 +25,7 @@
           @endforeach
 
           <div class="form-group mb-3">
-            <label for="nomer_pendaftar">No Pendaftar<span class="text-danger">*</span></label>
+            <label for="">No Pendaftar<span class="text-danger">*</span></label>
             <input type="text" class="form-control @error('nomer_pendaftar') is-invalid @enderror" id="nomer_pendaftar" name="nomer_pendaftar"
               autocomplete="off" required value="{{ $siswa->nomer_pendaftar }}">
             <small class="form-text text-muted">ex: <span class="text-dark">12345</span></small>
